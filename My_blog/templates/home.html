@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{%block title %}Home{% endblock %}
+{% block body %}
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<ul class="pagination pagination-lg">
+				<li>
+					 <a href="1">Prev</a>
+				</li>
+				<li>
+					 <a href="1">1</a>
+				</li>
+				<li>
+					 <a href="2">2</a>
+				</li>
+				<li>
+					 <a href="3">3</a>
+				</li>
+				<li>
+					 <a href="4">4</a>
+				</li>
+				<li>
+					 <a href="5">5</a>
+				</li>
+				<li>
+					 <a href="{{page+1}}">Next</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+        {% for post in posts.items %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>{{ post.username }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h4>{{ post.text }}</h4>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+<div class="col-lg-3">
+    <div class="row">
+        <h5>Recent Posts</h5>
+        <ul>
+            {% for post in posts.items %}
+            <h5>{{ post.username }}</h5>
+            {% endfor%}
+        </ul>
+    </div>
+    <div class="row">
+        <h5>Popular Tags</h5>
+        <ul>
+        </ul>
+    </div>
+</div>
+</div>
+{% endblock %}

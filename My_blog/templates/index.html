@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<style>
+*{                 
+	margin:0 auto;  /*设置对象上下间距为0，左右自动。*/
+	padding:0;/*设置各边上内边距的宽度*/
+}
+@keyframes rotate{
+	0%{
+		transform:rotateX(0deg) rotateY(0deg);
+	}
+	100%{
+		transform:rotateX(360deg) rotateY(360deg);/*沿着X、y轴旋转360度*/
+	}
+}
+.wrap{
+	margin-top:200px;/*设置元素的上外边距。*/
+	perspective: 1000px; /* 用来设置用户与元素3d空间平面之间的距离,视图距元素的距离 相当于摄像机 */
+}
+.cube{      /*包含立方体6个面的立方体的容器.cube提供样式：*/
+	width:200px;
+	height:200px;
+	position:relative;  /*设置为相对定位绝对定位。*/
+	color:#00FFFF;
+	font-size:36px;    /*设置字体大小。*/
+	padding:0;    /*设置各边上内边距的宽度*/
+	font-weight:bold; /*定义粗体字符。*/
+	text-align:center;
+	line-height:200px;  /*设置行高*/
+	transform-style:preserve-3d; /* 属性确保所有6个面都处于3D立体状态*/
+	transform:rotateX(-30deg) rotateY(-70deg); 
+	animation:rotate 10s infinite linear; /*播放时间 播放次数为循环 缓动效果为匀速 */
+}
+.cube div{      /*在为6个面设置它们的位置之前，先给它们一些通用的样式*/
+	width:100%;
+	height:100%;
+	border:1px solid #fff;  /*设置四个框样式*/
+	position:absolute;
+	background-color:#e0e0e0;
+	opacity:0.6; /*规定不透明度。从 0.0 （完全透明）到 1.0（完全不透明）。*/
+	transition:transform 0.4s ease-in;/*过渡属性 过渡所需时间 过渡类型*/
+}
+.cube .front{
+	transform: translateZ(100px);
+}
+.cube .back{
+	transform: translateZ(-100px) rotateY(180deg);
+}
+.cube .left{
+	transform: translateX(-100px) rotateY(-90deg);
+}
+.cube .right{ 
+	transform: translateX(100px) rotateY(90deg);
+}
+.cube .top{
+	transform: translateY(-100px) rotateX(90deg);
+}
+.cube .bottom{
+	transform: translateY(100px) rotateX(-90deg);
+}
+</style>
+</head>
+<body>
+<div id="Layer1" style="position:absolute; left:0px; top:0px; width:100%; height:100%">
+<img src="static/1.jpg" width="100%" height="100%"/>
+</div>
+<div class="wrap">
+	<div class="cube">
+		<div class="front"><a href='/1'>周报</a> </div>
+		<div class="back"><a href='/1'>周报</a></div>
+		<div class="left"><a href='/'>首页</a></div>
+		<div class="right"><a href='/'>.首页</a></div>
+		<div class="top"><a href='/user'>发布</a></div>
+		<div class="bottom"><a href='/user'>发布</a></div>
+
+	</div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px ;">
+</div>
+</body>
+</html>
